@@ -1,8 +1,10 @@
 from zipfile import ZipFile
 import pathlib
 from urllib.request import urlretrieve
-from os import remove 
+from os import remove
 import numpy as np
+import Augmentor as aug
+
 
 
 FID_DIRECTORY = pathlib.Path("FID-300")
@@ -20,6 +22,8 @@ def fetch_FID_300_data():
         print("Extracting FID-300")
         archive.extractall()
     remove(local_file)
+
+
 
 def load_labels():
     return np.loadtxt(FID_LABELS, delimiter=",")
